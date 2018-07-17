@@ -1,0 +1,22 @@
+# Template file for 'vte3-ng'
+pkgname=vte3-ng
+version=
+revision=1
+#wrksrc=
+#create_wrksrc=yes
+#only_for_archs="i686 x86_64"
+build_style=gnu-configure
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends=""
+makedepends=""
+depends=""
+short_desc=""
+maintainer="karimElmougi <karim.elmougi@gmail.com>"
+license="GPL-3.0-or-later"
+homepage=""
+distfiles=""
+checksum=badbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadb
