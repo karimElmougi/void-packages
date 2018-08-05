@@ -1,4 +1,3 @@
-# Template file for 'termite'
 pkgname=termite
 version=v12
 revision=1
@@ -13,12 +12,11 @@ license="GPL-2"
 homepage="https://github.com/thestinger/termite"
 
 do_fetch() {
-  git clone --recursive $homepage $wrksrc
-  cd $wrksrc
-  git checkout "${version}"
+git clone --recursive $homepage $wrksrc
+cd $wrksrc
+git checkout "${version}"
 }
 
 pre_configure() {
-  sed 's/PREFIX = \/usr\/local/PREFIX = \/usr/' -i Makefile
+    sed 's/PREFIX = \/usr\/local/PREFIX = \/usr/' -i Makefile
 }
-

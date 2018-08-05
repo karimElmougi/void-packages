@@ -1,4 +1,3 @@
-# Template build file for 'vte3-ng
 pkgname=vte3-ng
 version=0.48.3.a
 revision=2
