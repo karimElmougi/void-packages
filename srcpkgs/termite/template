@@ -1,0 +1,22 @@
+pkgname=termite
+version=v12
+revision=1
+wrksrc="${pkgname}-${version}-${revision}"
+build_style=gnu-makefile
+hostmakedepends="base-devel gtk+3-devel pkg-config git-perl gnutls-devel glib-devel    ncurses"
+makedepends="gcc make gtk-doc glib-devel vala-devel gobject-introspection pkg-config intltool gettext-devel gtk+3-devel pango-devel gperf pcre2-devel vte3-ng-devel"
+depends="vte3-ng xdg-utils"
+short_desc="A keyboard-centric VTE-based terminal, aimed at use within a window manager with tiling and/or tabbing support. "
+maintainer="Vintodrimmer <vintodrimmer@protonmail.ch>"
+license="GPL-2"
+homepage="https://github.com/thestinger/termite"
+
+do_fetch() {
+git clone --recursive $homepage $wrksrc
+cd $wrksrc
+git checkout "${version}"
+}
+
+pre_configure() {
+    sed 's/PREFIX = \/usr\/local/PREFIX = \/usr/' -i Makefile
+}

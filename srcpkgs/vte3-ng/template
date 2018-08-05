@@ -1,0 +1,33 @@
+pkgname=vte3-ng
+version=0.48.3.a
+revision=2
+wrksrc=vte-ng-${version}
+build_style=gnu-configure
+makedepends="gtk-doc glib-devel vala-devel gobject-introspection gettext-devel gnutls-devel gtk+3-devel gperf pcre2-devel"
+hostmakedepends="automake pkg-config intltool"
+short_desc="Enhanced Virtual Terminal Emulator widget for use with GTK3"
+maintainer=" <>"
+homepage="https://github.com/thestinger/vte-ng"
+license="LGPL-2.1"
+distfiles="https://github.com/thestinger/vte-ng/archive/0.48.3.a.tar.gz"
+checksum=f02377288d512d38a35439fedf0195ea3f671cf24fb60e43f098b20f1270b3f1
+
+provides="vte3-${version}_${revision}"
+replaces="vte3>=0"
+conflicts="vte3>=0"
+
+pre_configure() {
+        NOCONFIGURE=1 ./autogen.sh
+}
+
+vte3-ng-devel_package() {
+	depends="gnutls-devel gtk+3-devel pcre2-devel"
+	short_desc+=" - development files"
+	pkg_install() {
+		vmove usr/include/vte-2.91/vte
+		vmove usr/lib/pkgconfig
+		vmove usr/lib/*.so*
+                vmove usr/lib/*.a
+		vmove usr/lib/girepository-1.0
+        }
+}
